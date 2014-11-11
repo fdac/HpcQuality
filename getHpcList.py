@@ -6,7 +6,12 @@ client = pymongo.MongoClient (host="da0.eecs.utk.edu")
 db = client ['bitbucket']
 coll = db ['repos']
 
-keywords =  ['HPC', 'climate simulation', 'molecular dynamics', 'parallel programming','FLOP', 'library tracking', 'programming model', 'fault tolerance', 'resilience', 'distributed computing', 'large scale', 'GPU', 'algorithm', 'MPI', 'SHMEM', 'openMP', 'CUDA', 'multi cores', 'scaling', 'high performance', 'latency', 'matrix', 'cluster', 'supercomputers', 'runtime',  'cloud computing', 'cluster computing', 'linear algebra', 'big data', 'large data', 'openMP', 'combustion simulation']
+files = open('hpc_keyWords', 'r').readlines()
+keywords = []
+
+for k in files:
+   text = k.lower()
+   keywords.append(text.rstrip())
 
 i=0
 desc_dict = {}
@@ -34,17 +39,12 @@ for r in coll.find({}, {"description":1, "full_name":1 }):
 
 print repo_dict
 
-
-
-print "\n ************************************** " 
+print "\n ************************************** \n" 
 
 print repo_name_dict
 
-
-
-
-
 '''
+# **********************************
 
 for words in keywords:
    print coll.find({description: words})
@@ -62,12 +62,6 @@ for r in coll .find ({}, { "url":1, "values" : 1, "_id":0 } ):
 
 for f in fws:
   print f .encode("utf-8")
-
-
-
-
-
-
 
 '''
 
