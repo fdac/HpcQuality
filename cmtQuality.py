@@ -52,3 +52,16 @@ for r in cmtRepo .keys ():
     nCmt += cmtRepo [r][cm]
     lCmt += len (cm)
   print 'r;' + r + ';' + str(len(cmtRepo [r])) + ';' + str(nCmt) + ';' + str(lCmt)
+
+# r                   - Denotes Repo 
+# r                   - Repo Name 
+# str(len(cmtRepo[r]) - # of Unique Commits
+# str(nCmt)           - Total # of Commits
+# str(lCmt)           - Total size of Commits
+
+
+
+
+
+
+

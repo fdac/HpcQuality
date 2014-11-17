@@ -17,6 +17,13 @@ sub output {
 		$comments =~ s/\r/ /g;
 		$comments =~ s/\n/__NEWLINE__/g;
 		print "$rev\;$login\;$line\;$date\;$f\;$paths{$f}\;$comments\n";
+                # rev       - Revision Number 
+                # login     - Author
+                # line      - Number of File changed
+                # date      - Commit Date
+                # f         - File Path
+                # paths{f}  - Modified (M) / Add (A)
+                # comments  - Comments
 	}
 	%paths = ();
 	($rev, $date, $login, $line, $comments) = ("","","", "");	
