@@ -52,7 +52,7 @@ def decode(text):
     return str(text).encode('string_escape')
 
 if __name__ == '__main__':
-  delta_dir = '/home/audris/delta/'
+  delta_dir = '/home/audris/hpc/'
   client = pymongo.MongoClient(host="da0.eecs.utk.edu")
   db = client['bitbucket']
   deltas = db['measures']
@@ -62,10 +62,10 @@ if __name__ == '__main__':
   for f in files:
     f = f.strip()
     name = f .replace ('bitbucket.org_', '') .replace ('.delta.gz', '')
-    print 'files: ', f, "name: ", name, 'open : ', delta_dir + f
-#    contents = gzip.open(delta_dir + f).read()
-#    delta,authors,files = parse(contents, name)
-#    na = len(authors.keys())
-#    nf = len(files.keys())
-#    print f + ';' + name + ';' + str(delta) + ';' + str(na)+ ';' + str(nf) + ';' + ':'.join (authors.keys()) + ';' + ':'.join(files.keys())
+#    print 'files: ', f, "name: ", name, 'open : ', delta_dir + f
+    contents = gzip.open(delta_dir + f).read()
+    delta,authors,files = parse(contents, name)
+    na = len(authors.keys())
+    nf = len(files.keys())
+    print f + ';' + name + ';' + str(delta) + ';' + str(na)+ ';' + str(nf) + ';' + ':'.join (authors.keys()) + ';' + ':'.join(files.keys())
 	    

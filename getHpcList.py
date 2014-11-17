@@ -6,7 +6,7 @@ client = pymongo.MongoClient (host="da0.eecs.utk.edu")
 db = client ['bitbucket']
 coll = db ['repos']
 
-files = open('hpc_keyWords', 'r').readlines()
+files = open('hpc_libList', 'r').readlines()
 keywords = []
 
 for k in files:
