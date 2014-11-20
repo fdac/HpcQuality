@@ -1,0 +1,16 @@
+visualization : h2_energy-visualization
+flop : codedivine_maxflopscl
+matrix : so61pi_matrix
+algorithm : tempredirect_groovyalgorithmsinanutshell
+latency : belenbaas_sensorlatencytable
+mkl : radimklaska_apikey
+mpi : vallenovasac_org.idempiere.vallenova.registromasivoseries
+scaling : galtay_enzo-3.0-scaling
+cluster : kasterma_clustering
+openmpi : nye_qmake-openmpi-feature
+cuda : martinjvickers_k-means-cuda
+openmp : nye_qmake-openmpi-feature
+gpu : gik0geck0_gpugraphalgorithms
+runtime : mdye_api_runtime_compare
+vmware : nmaekawa_vmware_tools
+linear : allenLao_linear_transfer

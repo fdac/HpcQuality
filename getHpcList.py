@@ -6,7 +6,7 @@ client = pymongo.MongoClient (host="da0.eecs.utk.edu")
 db = client ['bitbucket']
 coll = db ['repos']
 
-files = open('hpc_libList', 'r').readlines()
+files = open('hpc_pckgList', 'r').readlines()
 keywords = []
 
 for k in files:
@@ -36,33 +36,18 @@ for r in coll.find({}, {"description":1, "full_name":1 }):
          repo_name_dict[words] = r_name
 
 
+# Description of repo matching keywords
+# print repo_dict
 
-print repo_dict
 
 print "\n ************************************** \n" 
 
+# Repo name matching keywords
 print repo_name_dict
 
-'''
-# **********************************
+for x in repo_name_dict:
+   print x, ":", repo_name_dict[x]
 
-for words in keywords:
-   print coll.find({description: words})
-   break
 
-fws = {'a'}
-for r in coll .find ({}, { "url":1, "values" : 1, "_id":0 } ):  
-  l, v = (r ["url"], r ["values"])
-  l = re.sub ("https://bitbucket.org/api/2.0/users/", "", l)
-  l = re.sub ("/followers", "", l)
-  fws .add (l)
-  for n in v:
-    f = n ["username"]
-    fws .add (f)
 
-for f in fws:
-  print f .encode("utf-8")
-
-'''
-
- 
+  
