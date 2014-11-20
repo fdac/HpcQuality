@@ -1,0 +1,7 @@
+lapack : chemoelectric/pure-lapacke
+blas : kryptick/tk-jbd-submit-mayaplayblast
+fftw : mooviefish/fftw3_android
+petsc : mapdes/petsc
+hdf : psitomcat/mythen2hdf5
+netcdf : iannis_b/scc-netcdf-checker
+atlas : robertmassaioli/atlassian-connect-haskell
