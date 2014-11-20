@@ -13,13 +13,13 @@ def parse(text, name):
   delta = 0
   files = {}
   text = text .replace('\r', '')
-
-  totalCmt = {}
-  uniqCmt = {}
-  comments = {}
-  commSize = {}
-  authCmt = {}
-  authors = {}
+  revs = {}
+  totalCmt = {'2007':0, '2008':0,'2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014': 0  }
+  authNum  = {'2007':0, '2008':0,'2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014': 0  }
+  uniqCmt  = {'2007':0, '2008':0,'2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014': 0  }
+  comments = {'2007':0, '2008':0,'2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014': 0  }
+  commSize = {'2007':0, '2008':0,'2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014': 0  }
+  preyear = 0
 
   # Determine if it uses Git
   if text.find('ENDOFCOMMENT') > 0 and text[:text.find(';')].find(':') > 0:
@@ -42,24 +42,38 @@ def parse(text, name):
       #delta += 1 #total number of files been changed (include duplicated files)
       
       #get the year of the commit
-      year = props[4][:3]
+      year = props[4][:4]
 
       #number of total commits each year
       if revision not in revs:
-        revs[revision] = 1
-        totalCmt[year] += 1
-      
+         revs[revision] = 1
+         totalCmt[year] += 1
+
       #number of unique commits each year   
       if comment not in comments:
-        comments[comment] = 1
-        uniqCmt[year] += 1
-        commSize[year] += len(comment) #total size of unique comments
+         comments[comment] = 1
+         try:
+            uniqCmt[year] = uniqCmt[year] + 1
+            commSize[year] += len(comment) #total size of unique comments
+         except:
+            pass
+
+      elif int(year) != preyear:
+          try:
+             uniqCmt[year] += 1
+             commSize[year] += len(comment) #total size of unique comments
+          except:
+             pass
 
       #number of authors contributed each year
       if author not in authors:
         authors[author] = 1
-        authCmt[year] += 1
+        authNum[year] += 1
+      elif year != preyear:
+        authors[author] = 1
+        authNum[year] += 1
  
+      preyear = year
 
   ####### TO DO ...
   else:
@@ -76,7 +90,7 @@ def parse(text, name):
       else: sys.stderr.write ('Bad format:' + ';'.join(props) + '\n')
       delta += 1                      #total number of times for files changed
  # return delta, authors, files
-  return totalCmt, uniqCmt, commSize, authCmt
+  return totalCmt, uniqCmt, commSize, authors
 
 def chunks(l, n):
     if n < 1: 
@@ -105,12 +119,13 @@ if __name__ == '__main__':
     contents = open(delta_dir + f).read() #file has been decompressed
     #delta,authors,files = parse(contents, name)
 
-    totalCmt, uniqCmt, commSize, authCmt = parse(contents, name)
+    totalCmt, uniqCmt, commSize, authors = parse(contents, name)
 
     #get the info of commits quality each year
     for a in totalCmt.keys():
       #Quality of commits
       #unique commits/total commits
+      
       cmtQli = uniqCmt[a] / totalCmt[a]
       sizeCmt = commSize[a] / uniqCmt[a] 
       cmtPerAu = uniqCmt[a] / authCmt[a]     
