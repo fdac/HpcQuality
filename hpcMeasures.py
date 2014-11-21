@@ -102,10 +102,6 @@ def decode(text):
 
 if __name__ == '__main__':
   delta_dir = './LogFiles_HPC/'
-  #delta_dir = '/home/audris/hpc/'
-  #client = pymongo.MongoClient(host="da0.eecs.utk.edu")
-  #db = client['bitbucket']
-  #deltas = db['measures']
 
   # Get list of files
   files = open('mlist', 'r').readlines()
