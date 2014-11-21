@@ -6,14 +6,13 @@ client = pymongo.MongoClient (host="da0.eecs.utk.edu")
 db = client ['bitbucket']
 coll = db ['repos']
 
-files = open('hpc_pckgList', 'r').readlines()
+files = open('hpc_keyWords', 'r').readlines()
 keywords = []
 
 for k in files:
    text = k.lower()
    keywords.append(text.rstrip())
 
-i=0
 desc_dict = {}
 repo_dict = {}
 repo_name_dict = {}
@@ -37,16 +36,13 @@ for r in coll.find({}, {"description":1, "full_name":1 }):
 
 
 # Description of repo matching keywords
-# print repo_dict
+for x in repo_dict:
+   print repo_dict[x]
 
-
-print "\n ************************************** \n" 
 
 # Repo name matching keywords
-print repo_name_dict
-
 for x in repo_name_dict:
-   print x, ":", repo_name_dict[x]
+   print repo_name_dict[x]
 
 
 

@@ -1,16 +1,48 @@
-visualization : h2_energy-visualization
-flop : codedivine_maxflopscl
-matrix : so61pi_matrix
-algorithm : tempredirect_groovyalgorithmsinanutshell
-latency : belenbaas_sensorlatencytable
-mkl : radimklaska_apikey
-mpi : vallenovasac_org.idempiere.vallenova.registromasivoseries
-scaling : galtay_enzo-3.0-scaling
-cluster : kasterma_clustering
-openmpi : nye_qmake-openmpi-feature
-cuda : martinjvickers_k-means-cuda
-openmp : nye_qmake-openmpi-feature
-gpu : gik0geck0_gpugraphalgorithms
-runtime : mdye_api_runtime_compare
-vmware : nmaekawa_vmware_tools
-linear : allenLao_linear_transfer
+blkwolf/hpc-puppet
+DavidSichau/miind
+sobek44/mlcc
+petermr/pluto
+mcek/kaichu
+rhc/pmix
+jkyle/galra
+mkrautz/mumble-mirror
+ben_albrecht/qcl
+so61pi/matrix
+Mojusko/biglearning
+radimklaska/apikey
+gaijiading/lobre
+nye/qmake-openmpi-feature
+alexandrecostapb/restricted-space-knn
+naviserver/naviserver
+gik0geck0/gpugraphalgorithms
+dynamicguy/disco
+rsachetto/simplenumericallibrary
+JPereda/multimodel3dfx
+_pol/yt
+Yurlungur/cython-example
+dekozo/pyslinky
+nye/qmake-openmpi-feature
+natefoo/sputnik-mononucleotide
+weberc2/spamfilt
+ddinh/plasma-benchmarks
+mari_yamasaki/hw7
+hammerstad/it3105-pokerbot
+helhound/miner-config
+pguptapict/ec2-provisioning-engine
+rakvium/slobodastudio-rails-vagrant-test-rakvium
+h2/energy-visualization
+codedivine/maxflopscl
+so61pi/matrix
+tempredirect/groovyalgorithmsinanutshell
+belenbaas/sensorlatencytable
+radimklaska/apikey
+vallenovasac/org.idempiere.vallenova.registromasivoseries
+galtay/enzo-3.0-scaling
+kasterma/clustering
+nye/qmake-openmpi-feature
+martinjvickers/k-means-cuda
+nye/qmake-openmpi-feature
+gik0geck0/gpugraphalgorithms
+mdye/api_runtime_compare
+nmaekawa/vmware_tools
+allenLao/linear_transfer

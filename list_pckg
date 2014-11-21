@@ -1,19 +1,48 @@
-amber : wpalchemist_chamber-dashboard-events-calendar
-nwchem : cml_dictionary-compchem-nwchem
-samtools : Dreampursue_samtools
-tophat : joachimjacob_galaxy-central-fixing-discordant-reporting-tophat2
-stata : infinit-group_instatain_android
-lammps : dayalsoap_lammps
-espresso : timurbazhirov_espresso-4.0.3
-vmd : svmwebdev_vmdevviper
-elmer : pixelmerge_pixelmerge-docs
-gaussian : cml_dictionary-compchem-gaussian
-stacks : christophert_csap-stacks
-petsc : mapdes_petsc
-cutadapt : lance_parsons_cutadapt_galaxy_wrapper
-octave : hr_s_octavewrapper
-wrf : xredor_wrf2grads
-sas : hexarobi_ac-koa-hipchat-sassy
-vasp : py_project_vasphelper
-maker : jw-team_newsmaker2
-plink : stephanalber_phonegap-applinks
+wpalchemist/chamber-dashboard-events-calendar
+minhix/project3
+timurbazhirov/espresso-4.0.3
+svmwebdev/vmdevviper
+gugahoi/blur
+lance_parsons/cutadapt_galaxy_wrapper
+iljaas/sac-iljaas
+rlangolf/compass-magick
+xredor/wrf2grads
+wresch/st
+hseara/g_h_trj_cm
+uncreative/geoprofiles_neighbors
+alexandrul/dulwich
+Diego_Caridei/intent-part-1
+hr_s/octavewrapper
+joshua.adelman/chambertools
+py_project/vasphelper
+mshoaazar/swf-sge
+cml/dictionary-compchem-nwchem
+larsyencken/jp-places
+dayalsoap/lammps
+stray_train/version-control-fun
+bjvca/pasic
+mapdes/petsc
+ratkins/technocolourdreamcoat2014
+sboz/wendel
+joachimjacob/galaxy-central-fixing-discordant-reporting-tophat2
+ua-uits-solarch/ac-koa-hipchat-lenny
+wpalchemist/chamber-dashboard-events-calendar
+cml/dictionary-compchem-nwchem
+Dreampursue/samtools
+joachimjacob/galaxy-central-fixing-discordant-reporting-tophat2
+infinit-group/instatain_android
+dayalsoap/lammps
+timurbazhirov/espresso-4.0.3
+svmwebdev/vmdevviper
+pixelmerge/pixelmerge-docs
+cml/dictionary-compchem-gaussian
+christophert/csap-stacks
+mapdes/petsc
+abda11ah/opencart-payplug-mod
+lance_parsons/cutadapt_galaxy_wrapper
+hr_s/octavewrapper
+xredor/wrf2grads
+hexarobi/ac-koa-hipchat-sassy
+py_project/vasphelper
+jw-team/newsmaker2
+stephanalber/phonegap-applinks
