@@ -18,24 +18,26 @@ def parse(text, name):
   files = {}
   text = text .replace('\r', '')
 
-  cmtSize = {'2007':0, '2008':0, '2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014':0 }
-  uniqCmt  = {'2007':[], '2008':[], '2009':[] , '2010':[] , '2011':[] ,'2012':[] , '2013':[], '2014':[] }
-  uniqCmtSize = {'2007':0, '2008':0, '2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014':0 }
-  authors  = {'2007':[], '2008':[], '2009':[] , '2010':[] , '2011':[] ,'2012':[] , '2013':[], '2014':[] }
-  deltaYr  = {'2007':0, '2008':0, '2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014':0 }
-  totalCmt = {'2007':[], '2008':[], '2009':[] , '2010':[] , '2011':[] ,'2012':[] , '2013':[], '2014':[] }
-  preyear = 0
+  cmtSize = {'2003':0, '2004':0, '2005':0, '2006':0, '2007':0, '2008':0, '2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014':0 }
+  uniqCmt  = {'2003':[], '2004':[], '2005':[], '2006':[], '2007':[], '2008':[], '2009':[] , '2010':[] , '2011':[] ,'2012':[] , '2013':[], '2014':[] }
+  uniqCmtSize = {'2003':0, '2004':0, '2005':0, '2006':0, '2007':0, '2008':0, '2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014':0 }
+  authors  = {'2003':[], '2004':[], '2005':[], '2006':[], '2007':[], '2008':[], '2009':[] , '2010':[] , '2011':[] ,'2012':[] , '2013':[], '2014':[] }
+  deltaYr  = {'2003':0, '2004':0, '2005':0, '2006':0, '2007':0, '2008':0, '2009':0, '2010':0, '2011':0,'2012':0, '2013':0, '2014':0 }
+  totalCmt = {'2003':[], '2004':[], '2005':[], '2006':[], '2007':[], '2008':[], '2009':[] , '2010':[] , '2011':[] ,'2012':[] , '2013':[], '2014':[] }
   
-  # It's SVN
+  # It's git
 
-  line = text.strip().split('__NEWLINE__\n') 		 #get all the commits
+  line = text.strip().split('\n')			 #get all the commits
 
   # get the info of each commit
   for cmt in line:
     splits = cmt.split(';')
     # There may be semicolons in the comments too
-    props = splits[:7]
-    year = props[3][:4]                 # get year as every list will be year driven
+    props = splits[:10]
+
+    year = int(props[6][:])            # get year as every list will be year driven
+    year = int(year/(3600 * 24 * 365.25) + 1970)
+    year = str(year)
 
     revision = props[0]                                  #revision number
     valrev   = totalCmt[year]
@@ -43,13 +45,13 @@ def parse(text, name):
     if revision not in valrev:                           #commit each year
        totalCmt[year].append(revision)
 
-    author  = props[1]                                   #name of author
+    author  = props[4]                                   #name of author
     valauth = authors[year] 
     if author not in valauth:
        #authNum[year] += 1 
        authors[year].append(author)  
 
-    comment        = ';'.join(splits[6:])
+    comment        = ';'.join(splits[9:])
     cmtSize[year] += len(comment)                        #comment Size
     valcmt  = uniqCmt[year]
     if comment not in valcmt:
@@ -86,9 +88,9 @@ if __name__ == '__main__':
            authors[key].append('DivideByZeroCheck')
 
     print "\nFor file : ", name
-    print "\n Year   #nTC            #nUC    	#Au	     cmtSize  	unqCmtSize 	delta         #QC         #UC/Au"  
+    print "\n Year   #nTC            #nUC    	#Au	     cmtSize  		unqCmtSize 	delta         #QC         	#UC/Au"  
     for key in sorted(uniqCmt.keys()):
-        print key, ": ", len(totalCmt[key]), "		", len(uniqCmt[key]), "		", len(authors[key]), "		", cmtSize[key], "	", uniqCmtSize[key], "		", deltaYr[key], "		", float(len(uniqCmt[key]))/float(len(totalCmt[key])), "		", float(len(uniqCmt[key]))/float(len(authors[key]))
+        print key, ": ", int(len(totalCmt[key])), "		", int(len(uniqCmt[key])), "		", int(len(authors[key])), "		", int(cmtSize[key]), "		", int(uniqCmtSize[key]), "		", int(deltaYr[key]), "		", float(len(uniqCmt[key]))/float(len(totalCmt[key])), "		", float(len(uniqCmt[key]))/float(len(authors[key]))
 
 
 #    print "totalCmt: ", collections.OrderedDict(sorted(totalCmt.items()))
