@@ -3,6 +3,10 @@ use strict;
 #
 #Extract each revision from cvs log output
 #
+# To RUN this script 
+# cat LOGFILE | perl extrsvn.perl > listOfCommits
+
+
 use Time::Local;
 
 my %paths = ();
