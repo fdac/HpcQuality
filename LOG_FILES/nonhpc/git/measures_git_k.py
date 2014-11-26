@@ -35,9 +35,10 @@ def parse(text, name):
     # There may be semicolons in the comments too
     props = splits[:10]
 
-    year = int(props[6][:])            # get year as every list will be year driven
+    year = int(props[7][:])            # get year as every list will be year driven
     year = int(year/(3600 * 24 * 365.25) + 1970)
     year = str(year)
+
     if (int(year) < 2000 or int(year) > 2014): 
         print "year:", year
         print "props: ", props
